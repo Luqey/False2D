@@ -27,6 +27,11 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5;
 
+    [Header("Abilities")]
+    [SerializeField] private bool canLock = false;
+    [SerializeField] private bool canRotate = false;
+    [SerializeField] private bool canCarry = false;
+
     [Header("Rotations")]
     [SerializeField] private int rotateAmt = 90;
     [SerializeField] public int currRotation; //Range 1-3
@@ -62,7 +67,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Interactions & Collisions
-        if (Input.GetKeyDown(KeyCode.F) && !carryingObject && nearbyPickup && objNearby != null)
+        if (canCarry && Input.GetKeyDown(KeyCode.F) && !carryingObject && nearbyPickup && objNearby != null)
         {
             Pickup();
         }
@@ -72,21 +77,21 @@ public class PlayerController : MonoBehaviour
         }
 
         //Rotate Mechanic
-        if (Input.GetKeyDown(KeyCode.Q) && !rotating)
-        {
+        if (canRotate && Input.GetKeyDown(KeyCode.Q) && !rotating)
+        {   
             StartCoroutine(PerformRotation(-rotateAmt));
         }
-        if (Input.GetKeyDown(KeyCode.E) && !rotating)
+        if (canRotate && Input.GetKeyDown(KeyCode.E) && !rotating)
         {
             StartCoroutine(PerformRotation(rotateAmt));
         }
 
         //Lock Mechanic
-        if(Input.GetKeyDown(KeyCode.L) && objNearby != null && !objNearby.GetComponent<RotateObject>().locked)
+        if(canLock && Input.GetKeyDown(KeyCode.L) && objNearby != null && !objNearby.GetComponent<RotateObject>().locked)
         {
             objNearby.GetComponent<RotateObject>().Lock(true);
         }
-        else if (Input.GetKeyDown(KeyCode.L) && objNearby != null && objNearby.GetComponent<RotateObject>().locked)
+        else if (canLock && Input.GetKeyDown(KeyCode.L) && objNearby != null && objNearby.GetComponent<RotateObject>().locked)
         {
             objNearby.GetComponent<RotateObject>().Lock(false);
         }
@@ -162,6 +167,9 @@ public class PlayerController : MonoBehaviour
     {
         objNearby.transform.parent = transform;
         carriedObj = objNearby;
+        
+        carriedObj.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
+        carriedObj.GetComponent<PickupObject>().hitbox.enabled = false;
 
         carriedObj.transform.localPosition = pickupOffset;
         carryingObject = true;
@@ -169,7 +177,14 @@ public class PlayerController : MonoBehaviour
 
     private void Drop()
     {
-        carriedObj.transform.parent = null;
+        Vector2 dropDir = GetFacingDir();
+
+        carriedObj.transform.localPosition = dropDir;
+        carriedObj.transform.SetParent(null);
+
+        carriedObj.GetComponent<SpriteRenderer>().sortingLayerName = "Object";
+        carriedObj.GetComponent<PickupObject>().hitbox.enabled = true;
+
         carriedObj = null;
         carryingObject = false;
     }
@@ -180,6 +195,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool carryingObject = false;
 
     [SerializeField] private Vector2 pickupOffset;
+    [SerializeField] private float dropDistance = 8f;
 
     [Header("Collisions")]
     [SerializeField] private GameObject objNearby = null;
@@ -187,6 +203,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        nearbyPickup = false;
         objNearby = collider.gameObject;
         if(collider.gameObject.tag == "PickupObj")
         {
@@ -195,12 +212,30 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if(collider.gameObject.tag == "PickupObj")
-        {
-            nearbyPickup = false;
-        }
+        nearbyPickup = false;
         objNearby = null;
     }
 
     #endregion
+
+    //Calculation Functions
+    private Vector2 GetFacingDir() 
+    {
+        if(lastMoveDir.x > 0)
+        {
+            return new Vector2(dropDistance, 0);
+        }
+        else if(lastMoveDir.x < 0)
+        {
+            return new Vector2(-dropDistance, 0);
+        }
+        else if(lastMoveDir.y > 0)
+        {
+            return new Vector2(0, dropDistance);
+        }
+        else
+        {
+            return new Vector2(0, -dropDistance);
+        }
+    }
 }

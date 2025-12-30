@@ -9,6 +9,7 @@ public class RotateObject : MonoBehaviour
     [Header("Perspective")]
     [SerializeField] private int perspective;
     [SerializeField] public bool locked;
+    [SerializeField] private bool invert;
 
 
     [Header("Rotation")]
@@ -55,11 +56,19 @@ public class RotateObject : MonoBehaviour
 
         bool shouldBeVisible = curr == perspective;
 
-        if (shouldBeVisible && !isVisible)
+        if (!invert && shouldBeVisible && !isVisible)
         {
             RotateIn();
         }
-        else if (!locked && !shouldBeVisible && isVisible)
+        else if (!invert && !locked && !shouldBeVisible && isVisible)
+        {
+            RotateOut();
+        }
+        else if (invert && !shouldBeVisible && !isVisible)
+        {
+            RotateIn();
+        }
+        else if(invert && !locked && shouldBeVisible && isVisible)
         {
             RotateOut();
         }
