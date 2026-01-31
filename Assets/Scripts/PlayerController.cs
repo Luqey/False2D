@@ -39,6 +39,11 @@ public class PlayerController : MonoBehaviour
     private bool rotating;
     #endregion
 
+    #region Refs
+    [SerializeField] private RotateUI rotateUI;
+    [SerializeField] private DialogueManager dialogueManager;
+    #endregion
+
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -58,42 +63,56 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        //Movement
-        ReadMoveInputs();
-        Animate();
-        if (input.x < 0 && !facingLeft || input.x > 0 && facingLeft)
+        if (dialogueManager == null || !dialogueManager.isDialogueActive)
         {
-            Flip();
+            //Movement
+            ReadMoveInputs();
+            Animate();
+            if (input.x < 0 && !facingLeft || input.x > 0 && facingLeft)
+            {
+                Flip();
+            }
+
+            //Interactions & Collisions
+            if (canCarry && Input.GetKeyDown(KeyCode.F) && !carryingObject && nearbyPickup && objNearby != null)
+            {
+                Pickup();
+            }
+            else if (Input.GetKeyDown(KeyCode.F) && carryingObject)
+            {
+                Drop();
+            }
+
+            //Rotate Mechanic
+            if (canRotate && Input.GetKeyDown(KeyCode.Q) && !rotating)
+            {
+                StartCoroutine(PerformRotation(-rotateAmt));
+                rotateUI.AnimRotateUI("Q");
+            }
+            if (canRotate && Input.GetKeyDown(KeyCode.E) && !rotating)
+            {
+                StartCoroutine(PerformRotation(rotateAmt));
+                rotateUI.AnimRotateUI("E");
+            }
+
+            //Lock Mechanic
+            if (canLock && Input.GetKeyDown(KeyCode.L) && objNearby != null && !objNearby.GetComponent<RotateObject>().locked)
+            {
+                objNearby.GetComponent<RotateObject>().Lock(true);
+            }
+            else if (canLock && Input.GetKeyDown(KeyCode.L) && objNearby != null && objNearby.GetComponent<RotateObject>().locked)
+            {
+                objNearby.GetComponent<RotateObject>().Lock(false);
+            }
+        }
+        else if (dialogueManager != null && dialogueManager.isDialogueActive)
+        {
+            anim.SetFloat("MoveMagnitude", 0);
         }
 
-        //Interactions & Collisions
-        if (canCarry && Input.GetKeyDown(KeyCode.F) && !carryingObject && nearbyPickup && objNearby != null)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Pickup();
-        }
-        else if (Input.GetKeyDown(KeyCode.F) && carryingObject)
-        {
-            Drop();
-        }
-
-        //Rotate Mechanic
-        if (canRotate && Input.GetKeyDown(KeyCode.Q) && !rotating)
-        {   
-            StartCoroutine(PerformRotation(-rotateAmt));
-        }
-        if (canRotate && Input.GetKeyDown(KeyCode.E) && !rotating)
-        {
-            StartCoroutine(PerformRotation(rotateAmt));
-        }
-
-        //Lock Mechanic
-        if(canLock && Input.GetKeyDown(KeyCode.L) && objNearby != null && !objNearby.GetComponent<RotateObject>().locked)
-        {
-            objNearby.GetComponent<RotateObject>().Lock(true);
-        }
-        else if (canLock && Input.GetKeyDown(KeyCode.L) && objNearby != null && objNearby.GetComponent<RotateObject>().locked)
-        {
-            objNearby.GetComponent<RotateObject>().Lock(false);
+            Application.Quit();
         }
     }
 
@@ -119,8 +138,15 @@ public class PlayerController : MonoBehaviour
 
     private void PerformMovement()
     {
-        Vector2 movement = transform.right * input.x + transform.up * input.y;
-        rb.linearVelocity = movement * moveSpeed;
+        if (dialogueManager == null || !dialogueManager.isDialogueActive)
+        {
+            Vector2 movement = transform.right * input.x + transform.up * input.y;
+            rb.linearVelocity = movement * moveSpeed;
+        }
+        else if(dialogueManager != null && dialogueManager.isDialogueActive)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
     }
 
     private void Animate()
@@ -161,6 +187,7 @@ public class PlayerController : MonoBehaviour
         transform.rotation = targetRotation;
 
         rotating = false;
+        rotateUI.AnimRotateUIStop();
     }
 
     private void Pickup()
