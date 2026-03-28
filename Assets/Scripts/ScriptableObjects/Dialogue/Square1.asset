@@ -14,10 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   faceSprite: {fileID: 2962241945005672476, guid: 498681fa31e33d544a764d9bf2a79f01, type: 3}
   dialogue:
-  - Wait!
-  - I feel like I'm forgetting something..
-  - Maybe I should check my dresser!
-  barkClip: {fileID: 8300000, guid: b994e0483471f924bba09914b0256814, type: 3}
-  highPitch: 5
-  lowPitch: 4
+  - Ah.. what time is it...
+  - 'I should probably get my glasses.. '
+  barkClip: {fileID: 8300000, guid: 60ce26d4e9295334f906131a1a05b303, type: 3}
+  highPitch: 1.2
+  lowPitch: 0.9
   typeSpeed: 0.05

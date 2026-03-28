@@ -24,6 +24,12 @@ public class InteractDoor : MonoBehaviour
     private int line = 0;
     #endregion
 
+    #region Audio Stuff
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip doorOpen;
+    [SerializeField] private AudioClip doorClose;
+    #endregion
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -75,6 +81,7 @@ public class InteractDoor : MonoBehaviour
         coll.enabled = false;
         spriteRenderer.sprite = openSprite;
         isOpen = true;
+        audioSource.PlayOneShot(doorOpen);
     }
 
     private IEnumerator BlockedTextInteraction()

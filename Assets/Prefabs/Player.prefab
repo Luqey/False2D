@@ -712,6 +712,9 @@ GameObject:
   - component: {fileID: 4835900035729087380}
   - component: {fileID: 9136090160442096910}
   - component: {fileID: 3361658258901294811}
+  - component: {fileID: 6277736203544245347}
+  - component: {fileID: 6628668147919810034}
+  - component: {fileID: 5977538995579925530}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -919,6 +922,140 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6277736203544245347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4805272091476738704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b4b9c3fd1e96b4d8137dfb21d172aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  playerInv: []
+--- !u!114 &6628668147919810034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4805272091476738704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb644d479c1b6e840946f56ba7d2bc8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  surfaceTilemap: {fileID: 0}
+  woodSurfaceSounds:
+  - {fileID: 8300000, guid: cbeecd1f0e38cec4394a72f21b2da51e, type: 3}
+  - {fileID: 8300000, guid: 70c9592a8062e234199b08a35f8f556b, type: 3}
+  - {fileID: 8300000, guid: 47f05e7e3a2fb274ba1e6a2b38f54590, type: 3}
+  - {fileID: 8300000, guid: e5be91acfca5588448ab72152bd67340, type: 3}
+  grassSurfaceSounds: []
+  snowSurfaceSounds:
+  - {fileID: 8300000, guid: b994e0483471f924bba09914b0256814, type: 3}
+  metalSurfaceSounds: []
+  dirtSurfaceSounds: []
+  sfxSource: {fileID: 5977538995579925530}
+--- !u!82 &5977538995579925530
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4805272091476738704}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7472318584005983822
 GameObject:
   m_ObjectHideFlags: 0
