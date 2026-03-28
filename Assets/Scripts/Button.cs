@@ -7,7 +7,7 @@ public class Button : MonoBehaviour
 {
 
     [Header("Connections")]
-    [SerializeField] private Door connectedDoor;
+    [SerializeField] private ButtonDoor connectedDoor;
 
     [SerializeField] private BoxCollider2D hitbox;
 

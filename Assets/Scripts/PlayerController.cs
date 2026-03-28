@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5;
+    [SerializeField] public bool canMove = true;
 
     [Header("Abilities")]
     [SerializeField] private bool canLock = false;
@@ -66,7 +67,14 @@ public class PlayerController : MonoBehaviour
         if (dialogueManager == null || !dialogueManager.isDialogueActive)
         {
             //Movement
-            ReadMoveInputs();
+            if(canMove)
+            {
+                ReadMoveInputs();
+            }
+            else
+            {
+                input = Vector2.zero;
+            }
             Animate();
             if (input.x < 0 && !facingLeft || input.x > 0 && facingLeft)
             {
@@ -143,7 +151,7 @@ public class PlayerController : MonoBehaviour
             Vector2 movement = transform.right * input.x + transform.up * input.y;
             rb.linearVelocity = movement * moveSpeed;
         }
-        else if(dialogueManager != null && dialogueManager.isDialogueActive)
+        else if((dialogueManager != null && dialogueManager.isDialogueActive) || !canMove)
         {
             rb.linearVelocity = Vector2.zero;
         }
@@ -264,5 +272,13 @@ public class PlayerController : MonoBehaviour
         {
             return new Vector2(0, -dropDistance);
         }
+    }
+
+    public void EnablePlayerControl()
+    {
+        anim.Play("Idle");
+        transform.position = new Vector2(-13, 20);
+        this.GetComponent<Collider2D>().enabled = true;
+        canMove = true;
     }
 }

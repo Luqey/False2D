@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe9a439533f4ce43a23e401f72a5576, type: 3}
+  m_Name: PixelShading
+  m_EditorClassIdentifier: LutLight2D::LutLight2D.LutGenerator
+  _ramps: {fileID: 2800000, guid: 50c7cbe0e53f7ac4eaf764601011e786, type: 3}
+  _indexed: 1
+  _material:
+    enabled: 1
+    value: {fileID: 2100000, guid: e92e4a99855e1d9459829a01288ec9e1, type: 2}
+  _rampsDepth:
+    enabled: 1
+    value: 6
+  _rampsCount:
+    enabled: 1
+    value: 32
+  _lutSize: 0
+  _weight: 1
+  _gamma: 0
+  _blur:
+    enabled: 0
+    value: 1
+  _saveIndexedLut: 0
+  _gradsPath: Assets/Lighting/PixelShading_Ramps.png
+  _lut: {fileID: 0}
+  _lutIndexed: {fileID: 0}
+  _lutGenerated: {fileID: 2800000, guid: 430f04f857832164f859d0366af3525f, type: 3}
+  _gradsLink: {fileID: 2800000, guid: 50c7cbe0e53f7ac4eaf764601011e786, type: 3}

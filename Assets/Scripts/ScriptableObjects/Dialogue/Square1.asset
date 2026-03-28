@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c39af563c333a94fb39c69eeda2944a, type: 3}
   m_Name: Square1
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
-  faceSprite: {fileID: 7384131394397742811, guid: 79f84da134022e3489ac0e4f2a31d13d, type: 3}
+  faceSprite: {fileID: 2962241945005672476, guid: 498681fa31e33d544a764d9bf2a79f01, type: 3}
   dialogue:
-  - HELLO!
-  - I AM SQUARE MAN.
-  - GOODBYE.
+  - Wait!
+  - I feel like I'm forgetting something..
+  - Maybe I should check my dresser!
   barkClip: {fileID: 8300000, guid: b994e0483471f924bba09914b0256814, type: 3}
-  highPitch: 1.2
-  lowPitch: 0.8
+  highPitch: 5
+  lowPitch: 4
   typeSpeed: 0.05

@@ -58,7 +58,7 @@ public class DialogueManager : MonoBehaviour
 
         if (startedByInteraction)
         {
-            yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.F));
+            yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Return));
         }
         
         for (currentLineIndex = 0; currentLineIndex < dialogue.Length; currentLineIndex++)
@@ -76,7 +76,7 @@ public class DialogueManager : MonoBehaviour
             bool lineFinished = false;
             while (!lineFinished)
             {
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKeyDown(KeyCode.Return))
                 {
                     if (typing)
                     {

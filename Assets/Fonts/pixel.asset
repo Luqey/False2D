@@ -11,7 +11,7 @@ Texture2D:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 4
+  serializedVersion: 3
   m_Width: 256
   m_Height: 256
   m_CompleteImageSize: 65536
@@ -129,7 +129,7 @@ MonoBehaviour:
     m_UnderlineThickness: 0.24902344
     m_StrikethroughOffset: 2
     m_StrikethroughThickness: 0.24902344
-    m_TabWidth: 2
+    m_TabWidth: 1
   m_Material: {fileID: -1828646504642790814}
   m_SourceFontFileGUID: efedd0d3971174940af4f4ac17cd4ac2
   m_CreationSettings:

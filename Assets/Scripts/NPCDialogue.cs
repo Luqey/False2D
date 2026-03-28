@@ -30,7 +30,7 @@ public class NPCDialogue : MonoBehaviour
 
     private void Update()
     {
-        if (playerNearby && Input.GetKeyDown(KeyCode.F))
+        if (playerNearby && Input.GetKeyDown(KeyCode.Return))
         {
             StartCoroutine(StartInteraction());
         }
