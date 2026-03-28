@@ -312,7 +312,7 @@
       "url": "https://packages.unity.com"
     },
     "www.nulltale.lutlight2d": {
-      "version": "file:C:/Users/Legol/Downloads/LutLight2D-master/LutLight2D-master",
+      "version": "file:LutLight2D-master/LutLight2D-master",
       "depth": 0,
       "source": "local",
       "dependencies": {}
