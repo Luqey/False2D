@@ -18,7 +18,8 @@ public class CollectObject : MonoBehaviour
 
     #region Dialogue Stuff
     [SerializeField] DialogueManager dialogueManager;
-    [SerializeField] Dialogue[] dialogueObjs;
+    [SerializeField] Dialogue[] blockedDialogueObjs;
+    [SerializeField] Dialogue[] collectedDialogueObjs;
 
     private int line = 0;
     #endregion
@@ -68,13 +69,26 @@ public class CollectObject : MonoBehaviour
         if(collectedSprite != null) { spriteRenderer.sprite = collectedSprite; }
         playerInventory.GiveItem(containedItem);
         containedItem = null;
+        if (collectedDialogueObjs != null)
+        {
+            StartCoroutine(CollectedTextInteraction());
+        }
         alrObtained = true;
     }
 
     private IEnumerator BlockedTextInteraction()
     {
-        yield return StartCoroutine(dialogueManager.ReadText(dialogueObjs[line].dialogue, dialogueObjs[line].faceSprite, dialogueObjs[line].barkClip, dialogueObjs[line].lowPitch, dialogueObjs[line].highPitch, dialogueObjs[line].typeSpeed, true));
-        if (line < dialogueObjs.Length - 1)
+        yield return StartCoroutine(dialogueManager.ReadText(blockedDialogueObjs[line].dialogue, blockedDialogueObjs[line].faceSprite, blockedDialogueObjs[line].barkClip, blockedDialogueObjs[line].lowPitch, blockedDialogueObjs[line].highPitch, blockedDialogueObjs[line].typeSpeed, true));
+        if (line < blockedDialogueObjs.Length - 1)
+        {
+            line++;
+        }
+    }
+
+    private IEnumerator CollectedTextInteraction()
+    {
+        yield return StartCoroutine(dialogueManager.ReadText(collectedDialogueObjs[line].dialogue, collectedDialogueObjs[line].faceSprite, collectedDialogueObjs[line].barkClip, collectedDialogueObjs[line].lowPitch, collectedDialogueObjs[line].highPitch, collectedDialogueObjs[line].typeSpeed, true));
+        if (line < collectedDialogueObjs.Length - 1)
         {
             line++;
         }

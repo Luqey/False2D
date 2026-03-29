@@ -69,9 +69,8 @@ public class PlayerSFX : MonoBehaviour
 
     private IEnumerator PlayFootstep(AudioClip[] sounds)
     {
-        sfxSource.pitch = Random.Range(0.7f, 1.3f);
-        sfxSource.clip = sounds[Random.Range(0, sounds.Length)];
-        sfxSource.Play();
+        sfxSource.pitch = Random.Range(0.9f, 1.1f);
+        sfxSource.PlayOneShot(sounds[Random.Range(0, sounds.Length)]);
 
         yield return new WaitForSeconds(0.1f);
         played = false;

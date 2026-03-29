@@ -22,7 +22,7 @@ MonoBehaviour:
     value: 6
   _rampsCount:
     enabled: 1
-    value: 32
+    value: 38
   _lutSize: 0
   _weight: 1
   _gamma: 0

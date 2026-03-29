@@ -110,7 +110,10 @@ public class DialogueManager : MonoBehaviour
             textObject.text += letter;
             bark.pitch = Random.Range(lowPitch, highPitch);
 
-            bark.PlayOneShot(bark.clip);
+            if (letter != '.' && letter != ',')
+            {
+                bark.PlayOneShot(bark.clip);
+            }
             yield return new WaitForSeconds(typeSpeed);
         }
         typing = false;

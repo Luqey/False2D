@@ -13,14 +13,19 @@ public class LightSwitch : MonoBehaviour
     [SerializeField] private float numberOfShifts;
     private float valueChange;
 
+    private float baseIntensity;
+
+
+
     private void Start()
     {
         myLight = GetComponent<Light2D>();
-        valueChange = 1/numberOfShifts;
+        baseIntensity = myLight.intensity;
+        valueChange = baseIntensity/numberOfShifts;
 
         if (isOn)
         {
-            myLight.intensity = 1;
+            myLight.intensity = baseIntensity;
         }
         else
         {
@@ -44,5 +49,11 @@ public class LightSwitch : MonoBehaviour
             }
         }
         isOn = !isOn;
+    }
+
+    public void SetNewIntensity(float newIntensity)
+    {
+        baseIntensity = newIntensity;
+        myLight.intensity = baseIntensity;
     }
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c39af563c333a94fb39c69eeda2944a, type: 3}
+  m_Name: DoorMonologue
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  faceSprite: {fileID: 2962241945005672476, guid: 498681fa31e33d544a764d9bf2a79f01, type: 3}
+  dialogue:
+  - Ah.. what time is it...
+  - I should probably get my glasses...
+  barkClip: {fileID: 8300000, guid: 60ce26d4e9295334f906131a1a05b303, type: 3}
+  highPitch: 1.3
+  lowPitch: 1
+  typeSpeed: 0.055
