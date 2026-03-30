@@ -8,10 +8,8 @@ public class LightSwitch : MonoBehaviour
 {
     private LightController myController;
     private Light2D myLight;
-    private bool isOn;
 
     private float valueChange;
-    private float baseIntensity;
 
     private float intensity;
 
@@ -21,7 +19,6 @@ public class LightSwitch : MonoBehaviour
         myLight = GetComponent<Light2D>();
 
         intensity = myLight.intensity;
-        baseIntensity = intensity;
 
         if (myController.myRoomOccupied)
         {
@@ -43,20 +40,6 @@ public class LightSwitch : MonoBehaviour
         else
         {
             myLight.intensity += valueChange;
-        }
-    }
-
-    public void SetNewIntensity(float newIntensity)
-    {
-        if (!isOn)
-        {
-            myLight.intensity = newIntensity;
-            isOn = true;
-        }
-        else
-        {
-            myLight.intensity = baseIntensity;
-            isOn = false;
         }
     }
 }

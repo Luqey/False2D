@@ -1,12 +1,11 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class FlipSwitch : MonoBehaviour
 {
     private bool playerNearby = false;
 
-    [SerializeField] LightSwitch connectedBulb;
-
-    [SerializeField] private float desiredIntensity;
+    [SerializeField] Light2D connectedBulb;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,7 +27,7 @@ public class FlipSwitch : MonoBehaviour
     {
         if (playerNearby && Input.GetKeyDown(KeyCode.Return))
         {
-            connectedBulb.SetNewIntensity(desiredIntensity);
+            connectedBulb.enabled = !connectedBulb.enabled;
         }
     }
 }

@@ -6,7 +6,7 @@ public class LightController : MonoBehaviour
 {
     [SerializeField] public bool myRoomOccupied;
 
-    private LightSwitch[] lightsInRoom;
+    [SerializeField] private LightSwitch[] lightsInRoom;
 
     [SerializeField] private float numberOfShifts;
 
