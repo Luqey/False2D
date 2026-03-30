@@ -524,7 +524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractObject
   dialogueManager: {fileID: 819998239}
   objDialogues:
-  - {fileID: 11400000, guid: 773f7762a2447e04ca5e793c2adcaf71, type: 2}
+  - {fileID: 11400000, guid: c555d064824cd0b46ae61d0e8de644a2, type: 2}
 --- !u!212 &101649203
 SpriteRenderer:
   serializedVersion: 2
