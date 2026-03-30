@@ -6,26 +6,26 @@ using UnityEngine.Rendering.Universal;
 
 public class LightSwitch : MonoBehaviour
 {
-
+    private LightController myController;
     private Light2D myLight;
-    [SerializeField] private bool isOn;
+    private bool isOn;
 
-    [SerializeField] private float numberOfShifts;
     private float valueChange;
-
     private float baseIntensity;
 
-
+    private float intensity;
 
     private void Start()
     {
+        myController = GetComponentInParent<LightController>();
         myLight = GetComponent<Light2D>();
-        baseIntensity = myLight.intensity;
-        valueChange = baseIntensity/numberOfShifts;
 
-        if (isOn)
+        intensity = myLight.intensity;
+        baseIntensity = intensity;
+
+        if (myController.myRoomOccupied)
         {
-            myLight.intensity = baseIntensity;
+            myLight.intensity = intensity;
         }
         else
         {
@@ -33,27 +33,30 @@ public class LightSwitch : MonoBehaviour
         }
     }
 
-    public IEnumerator LightChange(bool isPos)
+    public void RoomShiftFunc(bool entering, float shifts)
     {
-        for (int i = 0; i < numberOfShifts; i++)
+        valueChange = intensity/shifts;
+        if (entering)
         {
-            if (isPos)
-            {
-                myLight.intensity += valueChange;
-                yield return new WaitForSeconds(.15f);
-            }
-            else
-            {
-                myLight.intensity -= valueChange;
-                yield return new WaitForSeconds(.15f);
-            }
+            myLight.intensity -= valueChange;
         }
-        isOn = !isOn;
+        else
+        {
+            myLight.intensity += valueChange;
+        }
     }
 
     public void SetNewIntensity(float newIntensity)
     {
-        baseIntensity = newIntensity;
-        myLight.intensity = baseIntensity;
+        if (!isOn)
+        {
+            myLight.intensity = newIntensity;
+            isOn = true;
+        }
+        else
+        {
+            myLight.intensity = baseIntensity;
+            isOn = false;
+        }
     }
 }

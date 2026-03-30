@@ -6,14 +6,13 @@ using UnityEngine.Rendering.Universal;
 public class RoomChanger : MonoBehaviour
 {
     [SerializeField] private GameObject mySpace;
-    [SerializeField] private LightSwitch myRoomLight;
+    [SerializeField] private LightController myRoomLight;
 
     private bool inside = false;
     private bool beingMovedTo;
-    [SerializeField] int numberOfColorShifts;
 
     [SerializeField] private Transform connectedChanger;
-    [SerializeField] private LightSwitch connectedLight;
+    [SerializeField] private LightController connectedLight;
 
 
     void OnTriggerEnter2D(Collider2D collision)
