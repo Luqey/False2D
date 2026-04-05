@@ -10,9 +10,9 @@ public class ButtonDoor : MonoBehaviour
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         baseSprite = spriteRenderer.sprite;
         pressedCollider = GetComponent<BoxCollider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void Open(bool isOpen)

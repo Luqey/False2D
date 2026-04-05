@@ -151,3 +151,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c7d5aee33b2834f8a210cf74fb0bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  openedSprite: {fileID: 4557433212590328601, guid: bcc3bd2fff89a544b89d2ff0b2d8584e, type: 3}
