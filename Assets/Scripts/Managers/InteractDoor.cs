@@ -81,7 +81,10 @@ public class InteractDoor : MonoBehaviour
         coll.enabled = false;
         spriteRenderer.sprite = openSprite;
         isOpen = true;
-        audioSource.PlayOneShot(doorOpen);
+        if (!openOnStart)
+        {
+            audioSource.PlayOneShot(doorOpen);
+        }
     }
 
     private IEnumerator BlockedTextInteraction()

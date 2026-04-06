@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c39af563c333a94fb39c69eeda2944a, type: 3}
+  m_Name: Sister
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  faceSprite: {fileID: -4317789807482811898, guid: 288c9e4803048b448a270220bc13e4b4, type: 3}
+  dialogue:
+  - Goodmorning Nyki!
+  - You're up early!
+  - You should talk to grandma and ask if she needs any help.
+  barkClip: {fileID: 8300000, guid: 60ce26d4e9295334f906131a1a05b303, type: 3}
+  highPitch: 0.9
+  lowPitch: 0.6
+  typeSpeed: 0.06

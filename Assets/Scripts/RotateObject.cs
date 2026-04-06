@@ -14,6 +14,8 @@ public class RotateObject : MonoBehaviour
 
     [Header("Rotation")]
     public RotateAxis rotateAxis;
+    [Range(-1, 1)]
+    public int axisInvert;
     public float rotateDuration = 0.35f;
     public float hiddenAngle = 90f;
 
@@ -31,11 +33,11 @@ public class RotateObject : MonoBehaviour
 
         if (rotateAxis == RotateAxis.X)
         {
-            hiddenEuler.x += hiddenAngle;
+            hiddenEuler.x += (hiddenAngle * axisInvert);
         }
         else
         {
-            hiddenEuler.x -= hiddenAngle;
+            hiddenEuler.y -= (hiddenAngle * axisInvert);
         }
 
         hiddenRotation = Quaternion.Euler(hiddenEuler);
