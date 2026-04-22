@@ -501,7 +501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3252491023320140511, guid: 0b2b741a23fd6be49867c68dd3e63ac5, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.21867321
+      value: 0.21875
       objectReference: {fileID: 0}
     - target: {fileID: 3252491023320140511, guid: 0b2b741a23fd6be49867c68dd3e63ac5, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -509,7 +509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3252491023320140511, guid: 0b2b741a23fd6be49867c68dd3e63ac5, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.56265354
+      value: 0.5625
       objectReference: {fileID: 0}
     - target: {fileID: 3252491023320140511, guid: 0b2b741a23fd6be49867c68dd3e63ac5, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
@@ -3598,6 +3598,7 @@ MonoBehaviour:
   locked: 0
   invert: 0
   rotateAxis: 1
+  axisInvert: 1
   rotateDuration: 0.35
   hiddenAngle: 90
   lockObj: {fileID: 600723175882938087, guid: 943c7cf1d1ad84449a2d181a97d19fb8, type: 3}
