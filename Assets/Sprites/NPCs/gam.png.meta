@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 82f857dc26a3cda4889f80bd618631bd
+guid: 613aac6c430cddc4480c9c3b736d28fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5213229242370633579
-    second: Door_0
+      213: -1286834309346172677
+    second: gam_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Door_0
+      name: gam_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 8
+        width: 28
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b6f2e24006c195840800000000000000
-      internalID: 5213229242370633579
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Door_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6899c03c8044c58449955012bb068de3
-      internalID: -1573445527
+      spriteID: bf0e2aa730f342ee0800000000000000
+      internalID: -1286834309346172677
       vertices: []
       indices: 
       edges: []
@@ -147,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 822723ad3d924ea4d85ef901b1b6fa05
+    spriteID: 2f3c5c7b7320c7e4cacd836441335a0f
     internalID: 0
     vertices: []
     indices: 
@@ -157,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Door_0: 5213229242370633579
-      Door_1: -1573445527
+      gam_0: -1286834309346172677
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
