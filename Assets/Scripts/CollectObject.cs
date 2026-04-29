@@ -15,6 +15,7 @@ public class CollectObject : MonoBehaviour
     [SerializeField] private InventoryItem containedItem;
     [SerializeField] private InventoryItem itemNeeded;
     [SerializeField] private bool ignoreItemCheck;
+    [SerializeField] private bool shouldDisable = false;
 
     #region Dialogue Stuff
     [SerializeField] DialogueManager dialogueManager;
@@ -91,6 +92,10 @@ public class CollectObject : MonoBehaviour
         if (line < collectedDialogueObjs.Length - 1)
         {
             line++;
+        }
+        if (shouldDisable)
+        {
+            gameObject.SetActive(false);
         }
     }
 }

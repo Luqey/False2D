@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c39af563c333a94fb39c69eeda2944a, type: 3}
   m_Name: Grandma1
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
-  faceSprite: {fileID: -4317789807482811898, guid: 288c9e4803048b448a270220bc13e4b4, type: 3}
+  faceSprite: {fileID: -1286834309346172677, guid: 613aac6c430cddc4480c9c3b736d28fc, type: 3}
   dialogue:
   - Goodmorning Nyki!
-  - I've been experimenting with a new concept!
-  - 
+  - I've been experimenting with a new device!
+  - I call it, the three dimensional prism...
+  - now! from our perspective, it appears as though there are only two dimensions.
+  - but have you ever thought about how technically...
+  - we could view things from a different perspective?
+  - I've laid out some uses of this technology in our yard!
+  - Grab it and go outside to test it for yourself!
   barkClip: {fileID: 8300000, guid: 60ce26d4e9295334f906131a1a05b303, type: 3}
   highPitch: 0.7
   lowPitch: 0.4
