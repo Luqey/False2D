@@ -40,6 +40,9 @@ public class PlayerController : MonoBehaviour
     private bool rotating;
     #endregion
 
+    [Header("Pickup")]
+    [SerializeField] private GameObject pickupText;
+
     #region Refs
     [SerializeField] private RotateUI rotateUI;
     [SerializeField] private DialogueManager dialogueManager;
@@ -243,12 +246,14 @@ public class PlayerController : MonoBehaviour
         if(collider.gameObject.tag == "PickupObj")
         {
             nearbyPickup = true;
+            pickupText.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collider)
     {
         nearbyPickup = false;
         objNearby = null;
+        pickupText.SetActive(false);
     }
 
     #endregion
